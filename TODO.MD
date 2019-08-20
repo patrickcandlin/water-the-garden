@@ -31,6 +31,13 @@
         ***Watering can- is a timer that slowing drips on a goal - STRECH user can customize their Watering can durations. 
         ***Streak goals are goals that take not doing something i.e. not drinking/ going to the gym/ avoiding surgar. 
         ***Harvest goals- once a goal is completed a user can harvest them by taking them off the list. Harvested goals go on the achevements list. The more watering cans a goal took the higher on the list they appear.
+        ***User can comstomize a timer
+            ****figure out how to display a countdown timer
+                ***timer components
+                    input with a default of 25min
+                    display 
+                    stop
+                    reset
 
     **Calendar and Overview page
         ***Shows a history of accomplished tasks

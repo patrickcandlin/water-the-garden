@@ -1,18 +1,38 @@
 .App {
   text-align: center;
+
+  
 }
 .Timer {
   display: flex;
+  justify-content: center;
+  position: relative;
+  top: 50%;
+  
+
 }
 
 input {
-  border: none;
+  width: 60px;
+  font-size: 3em;
 }
-
+button {
+  height: 3em;
+}
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
   pointer-events: none;
+}
+svg {
+  width: 50%;
+  fill: rgba(255, 255, 255, 0);
+ 
+}
+
+.show-can {
+  fill: blue;
+  transition: fill 5s;
 }
 
 .App-header {
