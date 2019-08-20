@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Timer from "./components/Timer";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <h1>Hello</h1>
@@ -11,4 +11,3 @@ function App() {
   );
 }
 
-export default App;

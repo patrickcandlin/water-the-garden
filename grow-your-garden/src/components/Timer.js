@@ -3,47 +3,60 @@ import Button from './timer-components/Button'
 import TimerDisplay from './timer-components/TimerDisplay'
 import EasyTimer from "easytimer.js";
 
-class App extends Component {
+
+
+export default class Timer extends Component {
     constructor() {
         super();
 
         this.state = {
-            startingTime: 25,
+            startingTime: '25',
             timer: new EasyTimer(),
             timeValues: "",
             running: false,
+            break: false
         };
     }
 
     componentDidMount() {
         let { timer } = this.state;
-        timer.addEventListener("secondsUpdated", this.tick);
+        timer.addEventListener("secondsUpdated", this.tick)
+        timer.addEventListener("targetAchieved", this.breakEarned)
     }
-
+    
+    breakEarned = () => {
+        let { timer } = this.state
+        timer.start({
+            countdown: true, 
+            startValues: {
+                minutes: 5,
+                seconds: 0
+            }
+        });
+    }
+    
     startTimer = () => {
         let { timer, running } = this.state;
         
         this.state.running 
-        
         ?   timer.stop()
 
 
         :   timer.start({
                 countdown: true, 
                 startValues: {
-                    minutes: this.state.startingTime,
+                    minutes: parseInt(this.state.startingTime),
                     seconds: 0
                 }
             });
-            this.setState({
-                running: !running
-            })
+        this.setState({ running: !running })
 
     }
     setTimer = (event) => {
-        this.setState({
-            startingTime: event.target.value
-        })
+        parseInt(event.target.value)
+        ?   this.setState({ startingTime: event.target.value })
+        :   this.setState({ startingTime: '0' })
+
     }
     tick = (event) => {
         let { timer } = this.state;
@@ -53,13 +66,13 @@ class App extends Component {
 
     render() {
         return(
-            <div className="App">
+            <div className="Timer">
                 <TimerDisplay 
                     startingTime={this.state.startingTime}
                     timeValues={this.state.timeValues}
                     setTimer={this.setTimer}
+                    running={this.state.running}
                 />
-                <input value={`${this.state.timeValues}`} placeholder='25'/>
                 <Button 
                     startTimer={this.startTimer}
                     running={this.state.running}
@@ -69,5 +82,3 @@ class App extends Component {
 
     }
 }
-
-export default App;
