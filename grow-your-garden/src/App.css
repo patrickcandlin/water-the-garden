@@ -3,12 +3,16 @@
 
   
 }
+.timer-container{
+  z-index: 1;
+  position: relative;
+}
 .Timer {
+  z-index: 3;
   display: flex;
   justify-content: center;
-  position: relative;
   top: 50%;
-  
+  position: absolute;
 
 }
 
@@ -25,14 +29,16 @@ button {
   pointer-events: none;
 }
 svg {
+  z-index: 2;
   width: 50%;
   fill: rgba(255, 255, 255, 0);
- 
+  transition: fill 30s, transform 30s;
+  position: absolute;
 }
 
 .show-can {
   fill: blue;
-  transition: fill 5s;
+  transform: rotate(60deg);
 }
 
 .App-header {
